@@ -1,0 +1,60 @@
+{% extends 'HotelMgmt/base.html' %}
+{% load static %}
+
+{% block title %}Order Details Page{% endblock %}
+{% block content %}
+    <!-- order details -->
+	<div class="cust-login">
+		<div class="container">
+			
+			<div class="row">
+				<div class="col-md-12">
+					<div class="reg-cust">
+                        <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+						<div class="reg-title">
+                            order placed !!!
+						</div>
+                        <div class="instruc">
+                            
+
+                            <div class="col-md-12">
+                                <div class="more_info">
+                                    <div class="info_title">
+                                        ORDER DETAILS
+                                    </div>
+                                    <div class="blue_content">
+                                        <div class="info_name">CUSTOMER NAME</div>
+                                        <div class="info_value">{{ order_details.customer_name }}</div>
+                                    </div>
+                                    <!-- <div class="white_content">
+                                        <div class="info_name">CUSTOMER EMAIL</div>
+                                        <div class="info_value">{{ order_details.customer_email }}</div>
+                                    </div>
+                                    <div class="blue_content">
+                                        <div class="info_name">CUSTOMER NUMBER</div>
+                                        <div class="info_value">{{ order_details.customer_phone }}</div>
+                                    </div>
+                                    <div class="white_content">
+                                        <div class="info_name">SHIPPING ADDRESS</div>
+                                        <div class="info_value">{{ order_details.shipping_address }}</div>
+                                    </div>
+                                    <div class="blue_content">
+                                        <div class="info_name">BILLING ADDRESS</div>
+                                        <div class="info_value">{{ order_details.billing_address }}</div>
+                                    </div> -->
+                                    <div class="white_content">
+                                        <div class="info_name">UNIQUE TOKEN</div>
+                                        <div class="info_value">{{ order_details.token }}</div>This is your unique token which will be needed if you want to track status of order
+                                    </div>
+                                </div>
+                            </div>
+                        </div>					
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+  

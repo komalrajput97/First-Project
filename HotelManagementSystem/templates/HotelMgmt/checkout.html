@@ -1,0 +1,58 @@
+{% extends 'HotelMgmt/base.html' %}
+{% load static %}
+
+{% block title %}Checkout Page{% endblock %}
+{% block content %}
+    <!-- place order -->
+	<div class="cust-login">
+		<div class="container">
+			
+			<div class="row">
+                <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+                <div class="col-md-12">
+                    {% if msg %}
+                    <div class="title">
+                        checkout
+                    </div>
+                    
+                    <div class="customer_details">
+                        <div class="reg-title">
+                            Enter your details
+                        </div>
+                        <form action="{% url 'checkout' %}" name="order-placing-form" method="POST">
+                            <div class="col-md-6">
+                                <div class="form-input-div">
+                                    {% csrf_token %}
+                                    {% for field in order_form %}
+                                        <p>
+                                        {% if field.name == "billing_address" %}
+                                        <input type="checkbox" name="address">Keep billing address same as shipping address
+                                        {% endif %}
+                                        <label class="form-label" for="{{ field.name }}">{{ field.label }}</label>
+
+                                        {{ field }}
+                                        {{ field.errors }}
+                                        </p>
+                                    {% endfor %}
+                                   
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="reg-btn">
+                                    <input type="submit" class="news-btn" value="PLACE ORDER">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    {% else %}
+                        <div class="title">
+                            You have not added any items to the cart yet
+                        </div>
+                    {% endif %}
+                </div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+  

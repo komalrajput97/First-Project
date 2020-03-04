@@ -1,0 +1,83 @@
+{% extends 'HotelMgmt/base.html' %}
+{% load static %}
+
+{% block title %}Cart Page{% endblock %}
+
+{% block content %}
+<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}"/>
+   <div class="container">
+     <div class="row">
+        <div class="cart_table">
+           <div class="cart_heading">
+              <div class="col-md-6">
+                 <div class="item"> Item</div>
+              </div>
+              <div class="col-md-3">
+                 <div class="item"> Price</div>
+              </div>
+              <div class="col-md-3">
+                 <div class="item"> Quantity</div>
+              </div>
+           </div>
+           {% for cart_item in cart_list %}
+           <div class="cart_item" id="{{ cart_item.id }}">
+              <div class="col-md-6">
+                 <div class="item">
+                    <div class="row">
+                       <div class="col-md-6 col-sm-6 col-xs-6">
+                          <div class="item_img">
+                             <img src="../../media/{{ cart_item.menu_item.image }}"></img>
+                          </div>
+                       </div>
+                       <div class="col-md-6 col-sm-6 co-xs-6">
+                          <div class="item_detail">
+                             <div class="item_name">{{ cart_item.menu_item.name }}</div>
+                             <a href="javascript:void(0); ">
+                                <div class="remove_btn" id="item_{{ cart_item.id }}">Remove</div>
+                             </a>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="col-md-3">
+                 <div class="item_price"> &#8377; {{ cart_item.menu_item.price }}</div>
+              </div>
+              <div class="col-md-3">
+                 <div class="prod_qty">
+                    <button class="minus fa fa-minus qty"></button>
+                    <input type="text" class="number qty" value="{{ cart_item.quantity }}"></input>
+                    <button class="plus fa fa-plus qty"></button>
+                 </div>
+              </div>
+           </div>
+           {% empty %}
+           <h1>
+              You have not added any items to the cart yet.
+           </h1>
+           {% endfor %}
+           <!-- {% if total %} -->
+           <h1 style="float: right">
+              Total:
+              <span id="total">&#8377; {{ total }}</span>
+           </h1>
+           <!-- {% endif %} -->
+        </div>
+        <div class="left_options">
+           <a href="{% url 'index' %}">
+              <div class="news-btn pull-left">
+                 Continue Shopping
+              </div>
+           </a>
+           {% if cart_list %}
+           <a href="{% url 'checkout' %}">
+              <div class="news-btn pull-right">
+                 Proceed to checkout
+              </div>
+           </a>
+           {% endif %}
+        </div>
+     </div>
+  </div>
+    
+{% endblock %}    

@@ -1,0 +1,32 @@
+{% extends 'HotelMgmt/base.html' %}
+{% load static %}
+
+{% block title %}Index Page{% endblock %}
+
+{% block content %}
+    <div>
+      <div id="1" class="questions current">
+        <h1>Q1. abc</h1>
+        <div><input type="radio" name="options" value="A">A</div>
+        <div><input type="radio" name="options" value="B">B</div>
+        <div><input type="radio" name="options" value="C">C</div>
+        <div><input type="radio" name="options" value="D">D</div>
+      </div>
+      <div id="2" class="questions">
+        <h1>Q2. abc</h1>
+        <div><input type="radio" name="options" value="A">A</div>
+        <div><input type="radio" name="options" value="B">B</div>
+        <div><input type="radio" name="options" value="C">C</div>
+        <div><input type="radio" name="options" value="D">D</div>
+      </div>
+      <div id="3" class="questions">
+        <h1>Q3. abc</h1>
+        <div><input type="radio" name="options" value="A">A</div>
+        <div><input type="radio" name="options" value="B">B</div>
+        <div><input type="radio" name="options" value="C">C</div>
+        <div><input type="radio" name="options" value="D">D</div>
+      </div>
+      <button style="display:none" id="prev">prev</button>
+      <button id="next">next</button>
+    </div>
+{% endblock %}    

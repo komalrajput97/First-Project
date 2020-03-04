@@ -1,0 +1,21 @@
+{% extends 'HotelMgmt/base.html' %}
+{% load static %}
+
+{% block title %}Index Page{% endblock %}
+
+{% block content %}
+    <div id="menu_items">
+      <form action="{% url 'subject_test' %}" method="POST">
+        <select>
+          {% for std in standard_list %}
+            <option value="{{ std.id }}">{{ std.standard }}</option>
+          {% endfor %}
+        </select>
+        <div id="subjects">
+          {% for sub in std.subjects.all %}
+            <input type="checkbox" value="{{ sub }}" name="subjects">{{ sub }}
+          {% endfor %}
+        </div>
+      </form>
+    </div>
+{% endblock %}    

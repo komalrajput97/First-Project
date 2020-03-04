@@ -1,0 +1,47 @@
+
+<!-- Menu Items -->
+<div id="menu_items">
+  <div class="collection">
+    <div class="container">
+      <div class="collection-title">
+        <div class="collection-title-text">
+          <h2>{{ menu_items.0.category.name }} Items</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="collection_products">
+          {% for each_item in menu_items %}
+           <a href="#">
+          <div class="col-md-3 col-sm-6">
+           
+              <div class="collection-image">
+                <img src="/media/{{ each_item.image }}" class="full_width">
+                <div class="product-details">
+                  <div class="name">
+                    {{ each_item.name }}
+                  </div>
+                  <div class="price">
+                    {{ each_item.price }}
+                  </div>
+                </div>
+                <div class="hover-block">
+                  <div class="cart-btn"> 
+                    <a href="{% url 'add_to_cart' item_id=each_item.id %}">                       
+                      <button class="hover-cart">
+                        <i class="fa fa-shopping-cart hover-icon"></i>
+                        <span class="hover-text">ADD TO CART</span>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

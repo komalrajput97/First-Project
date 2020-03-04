@@ -1,0 +1,82 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta information -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- Mobile Specific Metas -->
+    <meta name="format-detection" content="telephone=no">
+    <!-- Title -->
+    <title> {% block title %}{% endblock %} </title>
+    <!-- CSS Stylesheet -->
+    <link href="{% static 'HotelMgmt/css/bootstrap.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'HotelMgmt/css/slick.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'HotelMgmt/css/font-awesome.css' %}">
+    <link href="{% static 'HotelMgmt/css/owl.carousel.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    <!-- bootstrap css -->
+    <!--<link rel="stylesheet" href="{% static 'HotelMgmt/contentshow.css' %}">-->
+    <link href="{% static 'HotelMgmt/css/custom.css' %}" rel="stylesheet">
+    <!--  template structure css -->
+  </head>
+  <body>
+    <div class="wrapper">
+          
+          <!-- navbar  -->
+          <div class="main-nav nav-shadow">
+            <div class="container">
+              <nav class="navbar navbar-default static">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'HotelMgmt/images/logo.png' %}"></a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav">
+                    <li class="active submenu">
+                      <a href="{% url 'index' %}">Home </a>
+                    </li>
+                   <!--  <li class="submenu"><a href="{% url 'view_cart' %}">Cart</a>
+                    </li>
+                    <li class="submenu"><a href="{% url 'checkout' %}">Checkout</a> -->
+                    </li>
+                    <li class="submenu"><a href="{% url 'track_order' %}">Track Order</a>
+                    </li>
+                    <li class="submenu"><a href="#">Terms and Conditions</a>
+                    </li>
+                  </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+              </nav>
+            </div>
+          </div>
+          {% block content %}
+          {% endblock %}
+           <!-- footer -->
+          <div class="footer2">
+            <p>
+              <span>&copy; All Rights Reserved </span>
+              <span class="ftext">Designed<a href="#"> DRC Systems</a></span>
+            </p>
+          </div>
+    </div>
+    <!-- Bootstrap core JavaScript
+      ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="{% static 'HotelMgmt/js/jquery-1.12.4.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'HotelMgmt/js/bootstrap.js' %}"></script>
+    <script type="text/javascript" src="{% static 'HotelMgmt/js/slick.js' %}"></script>
+    <script type="text/javascript" src="{% static 'HotelMgmt/js/owl.carousel.js' %}"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDiWV_YpzEWUhSZh-h6oDripzpOv8E-4nc"></script>
+    <script type="text/javascript" src="{% static 'HotelMgmt/js/custom.js' %}"></script>
+
+  </body>
+</html>

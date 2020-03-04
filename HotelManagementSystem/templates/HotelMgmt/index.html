@@ -1,0 +1,41 @@
+{% extends 'HotelMgmt/base.html' %}
+{% load static %}
+
+{% block title %}Index Page{% endblock %}
+
+{% block content %}
+  <div class="loader"></div>
+
+    <div class="container">
+      <div class="pincode_search">
+        <div class="input-div">
+              <input type="number" name="pincode" placeholder="Enter pincode" class="sub2" id="pincode">
+              <input type="submit" class="sub1" value="">
+        </div>
+      </div>
+      <div class="collection-title">
+          <div class="collection-title-text">
+            <h2 id="outlet_name"></h2>
+          </div>
+        </div>
+    </div>
+
+    <!-- hotel outlets gallery --> 
+    <div class="outlet_gallery" id="hotel_outlet_gallery">     
+      <div class="slider-box">
+        <div class="owlcarousel1 owl-carousel">
+          
+        </div>
+      </div>
+    </div>
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+    <!-- Menu Categories -->
+    <div class="menu_categories" id="menu_categories">
+      
+    </div>
+
+    <!-- Menu Items -->
+    <div id="menu_items">
+    </div>
+   
+{% endblock %}    
